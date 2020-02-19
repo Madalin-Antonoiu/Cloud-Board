@@ -28,7 +28,7 @@
 		</v-app-bar>
 
 		<!-- Drawer -->
-		<v-navigation-drawer app v-model="drawer" class="success"> 
+		<v-navigation-drawer app v-model="drawer" class="success" :disable-route-watcher="watcher"> 
 	
 			<v-list shaped >
 				<!-- <v-subheader>DASHBOARD</v-subheader> -->
@@ -57,7 +57,7 @@ export default {
       data: () => ({
 				drawer: false,
 				// clipped: true,
-			
+				watcher: false,
 				links: [
 					{icon: 'dashboard', text: 'Dashboard', route: '/'},
 					{icon: 'folder', text: 'Notes', route: '/notes'},
