@@ -1,6 +1,6 @@
 <template>
 	<nav>
-		
+
 		<!-- Navbar -->
 		<v-app-bar flat app >
 			
@@ -28,7 +28,7 @@
 		</v-app-bar>
 
 		<!-- Drawer -->
-		<v-navigation-drawer app v-model="drawer" class="indigo">
+		<v-navigation-drawer app v-model="drawer" light primary class="primary">
 			<p>test</p>
 		</v-navigation-drawer>
 
