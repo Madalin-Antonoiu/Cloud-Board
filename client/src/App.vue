@@ -1,9 +1,9 @@
-<template>
-  <v-app >
+<template >
+  <v-app  :style="{background: $vuetify.theme.themes[theme].background}">
     <Navbar />
     
-    <v-content class="grey lighten-4">
-      
+    <v-content class="mx-5 mb-4">
+
       <!-- Vuetify transition-->
       <v-fade-transition mode="out-in">
         <router-view></router-view>
@@ -22,6 +22,11 @@ export default {
   data: () => ({
     //
   }),
-  components: { Navbar}
+  components: { Navbar},
+    computed:{
+    theme(){
+      return (this.$vuetify.theme.dark) ? 'dark' : 'light'
+    }
+  }
 };
 </script>

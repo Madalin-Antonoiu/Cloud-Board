@@ -1,8 +1,8 @@
 <template>
 	<nav>
 
-		<!-- Navbar -->
-		<v-app-bar flat app >
+		<!-- Navbar (add 'flat' for dropping shadow) -->
+		<v-app-bar app flat> 
 			
 			<!--Burger -->
 			<v-app-bar-nav-icon class="grey--text" @click="drawer = !drawer"></v-app-bar-nav-icon>
