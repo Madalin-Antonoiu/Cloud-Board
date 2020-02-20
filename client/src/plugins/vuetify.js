@@ -9,15 +9,26 @@ export default new Vuetify({
         themes: {
             //Custom themes
             light: {
+                /* Adobe pallette with primary  #26a69a :
+                2nd: #20B34E
+                5th: #082E4D
+                3rd: #22A1BD
+                4th: #22BD80
+               
+                */
                 primary: '#26a69a',
-                // secondary: '#b0bec5',
+                secondary: '#20B34E',
+                third: '#22A1BD',
+                fourth: '#22BD80',
                 // accent: '#8c9eff',
                 // error: '#b71c1c',
                 background: colors.grey.lighten4,
             },
             dark: {
                 primary: '#26a69a',
-                // secondary: '#b0bec5',
+                secondary: '#20B34E',
+                third: '#22A1BD',
+                fourth: '#22BD80',
                 // accent: '#8c9eff',
                 // error: '#b71c1c',
                 background: colors.grey.lighten4,

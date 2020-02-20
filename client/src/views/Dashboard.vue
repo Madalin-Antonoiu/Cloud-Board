@@ -5,9 +5,27 @@
       Dashboard
     </v-subheader>
 
+    <!-- Vuetify Container -->
     <v-container class="my-5">
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque eaque quos doloremque, sit perferendis quidem vel ea? Quae voluptates, laborum atque quaerat suscipit error et facere, quidem velit praesentium eos.</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur ipsum doloribus rem officia eius. Quos dolorem quod ut magnam sit nisi delectus quis asperiores? Est pariatur harum fugit quasi provident?</p>
+      <!-- Vuetify Grid Layout -->
+      <v-layout row>
+
+        <v-flex xs12 md6>
+          <v-btn outlined block color="primary">1</v-btn>
+        </v-flex>
+
+        <v-flex xs4 md2>
+          <v-btn outlined block color="secondary">2</v-btn>
+        </v-flex>
+          <v-flex xs4 md2>
+          <v-btn outlined block color="third">3</v-btn>
+        </v-flex>
+          <v-flex xs4 md2>
+          <v-btn outlined block color="fourth">4</v-btn>
+        </v-flex>
+
+      </v-layout>
+
     </v-container>
 
   </div>
