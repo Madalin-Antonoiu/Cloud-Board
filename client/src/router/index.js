@@ -21,7 +21,7 @@ const routes = [{
         component: () =>
             import ( /* webpackChunkName: "about" */ '../views/Notes.vue')
     },
-    { path: '*', redirect: '/' }
+    // { path: '*', redirect: '/' } Add the saveguard back later
 ]
 
 const router = new VueRouter({

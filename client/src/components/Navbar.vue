@@ -60,6 +60,8 @@ export default {
 				links: [
 					{icon: 'dashboard', text: 'Dashboard', route: '/'},
 					{icon: 'folder', text: 'Notes', route: '/notes'},
+					{icon: 'chat', text: 'Chat', route: '/chat'},
+					{icon: 'fab fa-youtube', text: 'Youtube', route: '/youtube'},
 				]
   }),
 }
