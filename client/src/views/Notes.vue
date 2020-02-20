@@ -1,15 +1,15 @@
 <template>
   <div class="notes">
-    <Navbar />
-    <p>This is a notes page</p>
+    <!-- <Navbar /> -->
+    <p>This is a notes about page</p>
   </div>
 </template>
 
 <script>
-import Navbar from '@/components/Navbar'
+// import Navbar from '@/components/Navbar'
 
 export default {
-  name: 'Notes',
-   components: { Navbar}
+  name: 'About',
+  //  components: { Navbar}
 }
 </script>
