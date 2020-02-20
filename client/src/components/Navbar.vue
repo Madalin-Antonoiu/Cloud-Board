@@ -6,16 +6,15 @@
 			
 			<!--Burger -->
 			<v-app-bar-nav-icon class="grey--text" @click="drawer = !drawer"></v-app-bar-nav-icon>
-			
+			<!-- Title Icon Logo -->
+			<v-icon large class="pr-1 grey--text iconify" data-icon="zmdi:cloud-box" ></v-icon>
 			<!-- Title -->
-			<v-toolbar-title class="text-uppercase grey--text">
+			<v-toolbar-title class="text-uppercase grey--text ">
 				<span class="font-weight-light">Cloud</span>
 				<span>board</span>
 			</v-toolbar-title>
 
-			<!-- Title Icon Logo -->
-			<v-icon large class="pl-1 grey--text text--lighten-2">developer_board</v-icon>
-			
+	
 			<!-- Push next element to right side-->
 			<v-spacer></v-spacer>
 
@@ -66,3 +65,9 @@ export default {
 			}
 		)}
 </script>
+
+<style lang="css">
+br {
+ font-size: 10%;
+}
+</style>

@@ -9,33 +9,27 @@
 
       <!--Card Background -->
       <v-card flat class="pa-3">
-          <!-- Vuetify Vertical Tabs-->
-         <v-tabs vertical>
+
+         <v-tabs  :vertical="$vuetify.breakpoint.mdAndUp">
           <!-- 1st Tab -->
-          <v-tab>
-            <v-icon left>fab fa-vuejs</v-icon>
+
+          <v-tab style="text-transform: capitalize;" >
+            <v-icon left class="iconify" data-icon="logos:vue"></v-icon>
             <span>VueJs</span>
             <v-spacer></v-spacer>
           </v-tab>
 
           <!-- Tab2 -->
-          <v-tab>
-            <v-icon left>fab fa-js-square</v-icon>
+          <v-tab style="text-transform: capitalize;">
+            <v-icon left class="iconify" data-icon="logos:javascript"></v-icon>
             <span>JavaScript</span>
             <v-spacer></v-spacer>
           </v-tab>
 
           <!-- Tab3 -->
-          <v-tab>
-            <v-icon left>fab fa-sass</v-icon>
-            <span>Sass</span>
-            <v-spacer></v-spacer>
-          </v-tab>
-
-          <!-- Tab4 -->
-          <v-tab>
+          <v-tab style="text-transform: capitalize;">
             <!-- To use iconify with vuetify, add these to v-icon : class="iconify" data-icon="mdi-vuetify" -->
-            <v-icon left class="iconify" data-icon="mdi-vuetify"></v-icon>
+            <v-icon left class="iconify" data-icon="logos:vuetifyjs" ></v-icon>
             <span>Vuetify</span>
             <v-spacer></v-spacer>
           </v-tab>
@@ -125,6 +119,7 @@ export default {
   name: 'About',
   // Written like this, data doesn't need return {}
   data: () => ({
+    yes: true,
     notes: [
       { title: 'Introduction to Vuetify', owner: 'Madochan', seen: "1 week ago", tag: 'Vuetify', content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Id amet itaque minima quae. Sapiente ipsam ab eligendi fugiat debitis nesciunt corrupti repellat asperiores vero qui doloremque maiores cum, consequatur ea?' },
       { title: 'Classes and colors in JS', owner: 'Ana', seen: "4 days ago", tag: 'JavaScript', content:'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi quis accusantium sit numquam nobis quasi incidunt aut dolores, similique obcaecati id animi cupiditate deleniti voluptas nisi ipsam minima qui assumenda.' },
@@ -135,5 +130,5 @@ export default {
 </script>
 
 <style lang="css" >
-.iconify { color: #7BC6FF !important}
+/* .iconify { color: #7BC6FF !important} */
 </style>
