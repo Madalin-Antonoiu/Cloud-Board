@@ -24,8 +24,8 @@
           <v-tab-item  v-for="group in groups" :key="group.id">
            
             <v-card flat> <!-- The card component that holds next card, so i only create one table-->
-                <!-- The table (delete hr)-->
-                
+               
+                <!-- Toolbar above Table-->
                 <v-toolbar dense flat class="mt-1"> <!--style=" opacity: 0.6 " -->
 
                   <v-btn class="ma-2" outlined small fab color="primary">
@@ -84,9 +84,10 @@
 
                   </v-layout> -->
                    <!-- :hide-default-header="$vuetify.breakpoint.mdAndDown" -->
-                 
-                    <v-data-table
-                      :dense="$vuetify.breakpoint.mdAndDown"
+                 <!--:dense="$vuetify.breakpoint.mdAndDown" -->
+                    <v-data-table ref="tableC"
+                      
+                      dense
                       :headers="headers"
                       :items="group.notes"
                       :search="search"
@@ -95,9 +96,11 @@
                     <template v-slot:item.completed="{ item }">
                       <v-simple-checkbox v-model="item.completed" disabled></v-simple-checkbox>
                     </template>
-
+                      <!--this.$refs.table.hasAttribute('dense') -->
                       <template v-slot:item.tag="{ item }">
-                        <v-chip :color="getColor(item.tag)" small dark>{{ item.tag }}</v-chip>
+                        <v-chip :color="getColor(item.tag)" dark 
+                        :class="{'heightAuto': editMeHereYouWereLast }" 
+                        >{{ item.tag }}</v-chip>
                       </template>
 
                   </v-data-table>
@@ -231,4 +234,7 @@ export default {
     height: 10px !important;
 
   } */
+  .heightAuto{
+    height: auto;
+  }
 </style>
