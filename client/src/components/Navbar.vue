@@ -32,7 +32,7 @@
 	
 			<v-list shaped > <!-- Dense-->
 	
-					<v-list-item  v-model="links"  v-for="link in links" :key="link.text" router :to="link.route" >
+					<v-list-item  v-model="links"  v-for="link in links" :key="link.text" router :to="link.route" exact>
 
 						<v-list-item-icon >
 							<v-icon v-text="link.icon" class="white--text"></v-icon>
@@ -58,10 +58,10 @@ export default {
 				// clipped: true,
 				// watcher: false,
 				links: [
-					{icon: 'dashboard', text: 'Dashboard', route: '/'},
-					{icon: 'folder', text: 'Notes', route: '/notes'},
-					{icon: 'chat', text: 'Chat', route: '/chat'},
-					{icon: 'fab fa-youtube', text: 'Youtube', route: '/youtube'},
+					{icon: 'dashboard', text: 'Dashboard', route: '/mantonoiu'},
+					{icon: 'folder', text: 'Notes', route: '/mantonoiu/notes/'},
+					{icon: 'chat', text: 'Chat', route: '/mantonoiu/chat'},
+					{icon: 'fab fa-youtube', text: 'Youtube', route: '/mantonoiu/youtube'},
 				]
   }),
 }

@@ -7,12 +7,12 @@ Not importing it because we declare it lazy-loaded below! */
 Vue.use(VueRouter)
 
 const routes = [{
-        path: '/',
+        path: '/mantonoiu', //username
         name: 'dashboard',
         component: Dashboard
     },
     {
-        path: '/notes',
+        path: '/mantonoiu/notes/',
         name: 'notes',
         // component: Notes
         // route level code-splitting
@@ -21,7 +21,8 @@ const routes = [{
         component: () =>
             import ( /* webpackChunkName: "about" */ '../views/Notes.vue')
     },
-    // { path: '*', redirect: '/' } Add the saveguard back later
+    { path: '*', redirect: '/mantonoiu' }
+    //Add the saveguard back later
 ]
 
 const router = new VueRouter({
