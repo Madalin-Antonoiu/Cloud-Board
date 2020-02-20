@@ -54,7 +54,7 @@
 <script>
 export default {
       data: () => ({
-				drawer: true,
+				drawer: false,
 				// clipped: true,
 				// watcher: false,
 				links: [
