@@ -10,7 +10,7 @@
       <!--Card Background -->
       <v-card flat class="pa-3" >
 
-        <v-tabs  :vertical="$vuetify.breakpoint.mdAndUp" >
+        <v-tabs  :vertical="$vuetify.breakpoint.mdAndUp" > 
              
           <!-- Procedurally generated tabs during v-for based on JSON-->
           <v-tab style="text-transform: capitalize;" v-for="group in groups" :key="group.name">
@@ -24,9 +24,43 @@
           <v-tab-item  v-for="group in groups" :key="group.id">
            
             <v-card flat> <!-- The card component that holds next card, so i only create one table-->
+                <!-- The table (delete hr)-->
+                
+                <v-toolbar dense flat class="mt-1"> <!--style=" opacity: 0.6 " -->
 
-                <v-card flat class="pa-3" v-for="note in group.notes" :key="note.title" >
-                  <v-layout row class="mx-0">
+                  <v-btn class="ma-2" outlined small fab color="primary">
+                    <v-icon >post_add</v-icon>
+                  </v-btn>
+
+                  <v-spacer></v-spacer>
+
+                  <v-text-field v-model="search" prepend-inner-icon="search" 
+                    style="max-width: 175px;"
+                    :rules="rules"
+                    maxlength="15"
+                    :label=" group.name + ' ' + 'notes'" 
+                    dense hide-details outlined
+                    placeholder="Search"
+                    color="third"
+                  ></v-text-field>
+
+                  <v-btn icon class="ml-2">
+                    <v-icon>fas fa-eye-slash</v-icon>
+                  </v-btn>
+
+                  <v-btn icon>
+                    <v-icon >delete</v-icon>
+                  </v-btn>
+
+                  <v-btn icon>
+                    <v-icon>more_vert</v-icon>
+                  </v-btn>
+
+                </v-toolbar>
+              
+
+                <v-card flat class="pa-3" > <!-- v-for="note in group.notes" :key="note.title"  -->
+                  <!-- <v-layout row class="mx-0">
 
                     <v-flex xs12 md6>
                       <div class="caption grey--text">Title</div>
@@ -48,29 +82,34 @@
                       <div>{{note.tag}}</div>
                     </v-flex>
 
-                  </v-layout>
+                  </v-layout> -->
+                   <!-- :hide-default-header="$vuetify.breakpoint.mdAndDown" -->
+                 
+                    <v-data-table
+                      :dense="$vuetify.breakpoint.mdAndDown"
+                      :headers="headers"
+                      :items="group.notes"
+                      :search="search"
+                    >
+
+                    <template v-slot:item.completed="{ item }">
+                      <v-simple-checkbox v-model="item.completed" disabled></v-simple-checkbox>
+                    </template>
+
+                      <template v-slot:item.tag="{ item }">
+                        <v-chip :color="getColor(item.tag)" small dark>{{ item.tag }}</v-chip>
+                      </template>
+
+                  </v-data-table>
+                   
+
                 </v-card>  
 
-                <hr>
+          
 
-                <!-- The table (delete hr)-->
-                <v-card-title>
-                  Nutrition
-                  <v-spacer></v-spacer>
-                  <v-text-field
-                    v-model="search"
-                    append-icon="search"
-                    label="Search"
-                    single-line
-                    hide-details
-                  ></v-text-field>
-                </v-card-title>
 
-                <v-data-table
-                    :headers="headers"
-                    :items="desserts"
-                    :search="search"
-                ></v-data-table>
+
+
 
             </v-card>
 
@@ -102,7 +141,8 @@ export default {
               owner: 'Madochan', 
               seen: "1 week ago", 
               tag: 'Course1', 
-              content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Id amet itaque minima quae. Sapiente ipsam ab eligendi fugiat debitis nesciunt corrupti repellat asperiores vero qui doloremque maiores cum, consequatur ea?' 
+              content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Id amet itaque minima quae. Sapiente ipsam ab eligendi fugiat debitis nesciunt corrupti repellat asperiores vero qui doloremque maiores cum, consequatur ea?' ,
+              completed: true,
             },
             { //4
               title: 'Testing Vuetify - simple job!', 
@@ -155,107 +195,40 @@ export default {
     },
     search: '',
     headers: [
-      {
-        text: 'Dessert (100g serving)',
-        align: 'left',
-        sortable: false,
-        value: 'name',
-      },
-      { text: 'Calories', value: 'calories' },
-      { text: 'Fat (g)', value: 'fat' },
-      { text: 'Carbs (g)', value: 'carbs' },
-      { text: 'Protein (g)', value: 'protein' },
-      { text: 'Iron (%)', value: 'iron' },
+      { text: 'Title', align: 'left', value: 'title'}, // sortable: false, , 
+      { text: 'Owner', value: 'owner', align: ' d-none' },
+      { text: 'Seen', value: 'seen' },
+      { text: 'Tag', value: 'tag' },
+      { text: 'Completed', value: 'completed' },
     ],
-    desserts: [
-      {
-        name: 'Frozen Yogurt',
-        calories: 159,
-        fat: 6.0,
-        carbs: 24,
-        protein: 4.0,
-        iron: '1%',
-      },
-      {
-        name: 'Ice cream sandwich',
-        calories: 237,
-        fat: 9.0,
-        carbs: 37,
-        protein: 4.3,
-        iron: '1%',
-      },
-      {
-        name: 'Eclair',
-        calories: 262,
-        fat: 16.0,
-        carbs: 23,
-        protein: 6.0,
-        iron: '7%',
-      },
-      {
-        name: 'Cupcake',
-        calories: 305,
-        fat: 3.7,
-        carbs: 67,
-        protein: 4.3,
-        iron: '8%',
-      },
-      {
-        name: 'Gingerbread',
-        calories: 356,
-        fat: 16.0,
-        carbs: 49,
-        protein: 3.9,
-        iron: '16%',
-      },
-      {
-        name: 'Jelly bean',
-        calories: 375,
-        fat: 0.0,
-        carbs: 94,
-        protein: 0.0,
-        iron: '0%',
-      },
-      {
-        name: 'Lollipop',
-        calories: 392,
-        fat: 0.2,
-        carbs: 98,
-        protein: 0,
-        iron: '2%',
-      },
-      {
-        name: 'Honeycomb',
-        calories: 408,
-        fat: 3.2,
-        carbs: 87,
-        protein: 6.5,
-        iron: '45%',
-      },
-      {
-        name: 'Donut',
-        calories: 452,
-        fat: 25.0,
-        carbs: 51,
-        protein: 4.9,
-        iron: '22%',
-      },
-      {
-        name: 'KitKat',
-        calories: 518,
-        fat: 26.0,
-        carbs: 65,
-        protein: 7,
-        iron: '6%',
-      },
-    ],
-     
-
+    rules: [v => v.length <= 14 || 'Max 15 characters'],
+  
   }),
+    methods: {
+      getColor () {
+        //Beware, this generates random color always
+        let color = this.randomColor();
+        return color
+        // if (tag == 'Course1') return 'blue'
+        // else if (tag == "ToLearn") return 'yellow'
+        // else return color
+      },
 
+      randomColor(){
+          var num = Math.round(0xffffff * Math.random());
+          var r = num >> 16;
+          var g = num >> 8 & 255;
+          var b = num & 255;
+          return 'rgb(' + r + ', ' + g + ', ' + b + ')';
+      }
+    },
 }
 </script>
 
 <style lang="css" >
 /* .iconify { color: #7BC6FF !important} */
+/* .v-text-field .v-input__control .v-input__slot {
+    height: 10px !important;
+
+  } */
 </style>
