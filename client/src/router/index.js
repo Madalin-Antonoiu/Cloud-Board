@@ -7,7 +7,11 @@ Not importing it because we declare it lazy-loaded below! */
 Vue.use(VueRouter)
 
 const routes = [{
-        path: '/mantonoiu', //username
+        path: "/",
+        redirect: "/mantonoiu" //hardcoded username
+    },
+    {
+        path: '/mantonoiu', //hardcoded username
         name: 'dashboard',
         component: Dashboard
     },
@@ -21,7 +25,12 @@ const routes = [{
         component: () =>
             import ( /* webpackChunkName: "about" */ '../views/Notes.vue')
     },
-    { path: '*', redirect: '/mantonoiu' }
+    {
+        path: '*',
+        name: '404',
+        component: () =>
+            import ( /* webpackChunkName: "about" */ '../views/Error404.vue')
+    }
     //Add the saveguard back later
 ]
 

@@ -58,7 +58,7 @@ export default {
 				// clipped: true,
 				// watcher: false,
 				links: [
-					{icon: 'dashboard', text: 'Dashboard', route: '/mantonoiu'},
+					{icon: 'dashboard', text: 'Dashboard', route: '/mantonoiu'}, //hardcoded username
 					{icon: 'folder', text: 'Notes', route: '/mantonoiu/notes/'},
 					{icon: 'chat', text: 'Chat', route: '/mantonoiu/chat'},
 					{icon: 'fab fa-youtube', text: 'Youtube', route: '/mantonoiu/youtube'},
