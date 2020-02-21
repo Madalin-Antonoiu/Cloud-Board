@@ -26,40 +26,40 @@
             <v-card flat> <!-- The card component that holds next card, so i only create one table-->
                
                 <!-- Toolbar above Table-->
-                <v-toolbar dense flat class="mt-1"> <!--style=" opacity: 0.6 " -->
+                <v-toolbar dense flat :class="{'mt-5' : $vuetify.breakpoint.mdAndDown }"> <!--style=" opacity: 0.6 " -->
+                 
+                    <v-btn outlined small fab color="primary" @click="doTHis">
+                      <v-icon >post_add</v-icon>
+                    </v-btn>
 
-                  <v-btn class="ma-2" outlined small fab color="primary" @click="doTHis">
-                    <v-icon >post_add</v-icon>
-                  </v-btn>
+                    <v-spacer></v-spacer>
 
-                  <v-spacer></v-spacer>
+                    <v-text-field v-model="search" prepend-inner-icon="search" 
+                      style="max-width: 175px;"
+                      :rules="rules"
+                      maxlength="15"
+                      :label=" group.name + ' ' + 'notes'" 
+                      dense hide-details outlined
+                      placeholder="Search"
+                      color="third"
+                    ></v-text-field>
 
-                  <v-text-field v-model="search" prepend-inner-icon="search" 
-                    style="max-width: 175px;"
-                    :rules="rules"
-                    maxlength="15"
-                    :label=" group.name + ' ' + 'notes'" 
-                    dense hide-details outlined
-                    placeholder="Search"
-                    color="third"
-                  ></v-text-field>
+                    <v-btn icon class="ml-2">
+                      <v-icon>fas fa-eye-slash</v-icon>
+                    </v-btn>
 
-                  <v-btn icon class="ml-2">
-                    <v-icon>fas fa-eye-slash</v-icon>
-                  </v-btn>
+                    <v-btn icon>
+                      <v-icon >delete</v-icon>
+                    </v-btn>
 
-                  <v-btn icon>
-                    <v-icon >delete</v-icon>
-                  </v-btn>
-
-                  <v-btn icon>
-                    <v-icon>more_vert</v-icon>
-                  </v-btn>
-
+                    <v-btn icon>
+                      <v-icon>more_vert</v-icon>
+                    </v-btn>
+                 
                 </v-toolbar>
               
 
-                <v-card flat class="pa-3" > <!-- v-for="note in group.notes" :key="note.title"  -->
+                <v-card flat class="pa-4" > <!-- v-for="note in group.notes" :key="note.title"  -->
                   <!-- <v-layout row class="mx-0">
 
                     <v-flex xs12 md6>
@@ -94,6 +94,9 @@
                       :search="search"
                       :mobile-breakpoint='NaN'
                     >
+                    <!-- Customizing Header
+                      title is the value of first header
+                    -->
 
                     <template v-slot:item.completed="{ item }">
                       <v-simple-checkbox v-model="item.completed" disabled></v-simple-checkbox>
@@ -207,9 +210,9 @@ export default {
       headers: [
         { text: 'Title', align: 'left', value: 'title'}, // sortable: false, , 
         { text: 'Owner', value: 'owner', align: ' d-none' },
-        { text: 'Seen', value: 'seen' },
-        { text: 'Tag', value: 'tag' },
-        { text: 'Completed', value: 'completed' },
+        { text: 'Seen', value: 'seen', align: ' d-none'  },
+        { text: 'Tag', value: 'tag', align: 'left' },
+        { text: 'Completed', value: 'completed', align: 'left' },
       ],
       rules: [v => v.length <= 14 || 'Max 15 characters'],
   }},
